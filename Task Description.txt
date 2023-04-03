@@ -1,0 +1,8 @@
+Description:
+1. Create Trade.ts interface with 2 fields amount: number and currency: string
+2. Need to create ReduxStore.ts file with redux store definition
+3. Redux store should contain trades: Trade[]; and 2 actions OpenTrade, AddTrade
+4. Application should display list of trades and contain "Open Trade" button
+5. Clicking on "Open Trade" button should open modal with input and "Buy" button
+6. Clicking on "Buy" button need dispatch OpenTrade action, intercept in middleware
+7. Middleware function should emulate 2 seconds timeout and dispatch AddTrade action with new Trade instance that contains amount from modal and currency $
