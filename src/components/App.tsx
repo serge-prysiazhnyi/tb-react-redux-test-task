@@ -1,28 +1,33 @@
-import "../../resources/css/layout.scss";
-
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addTradeAction } from "../state/trades/actions";
+import { selectTrades } from "../state/trades/selectors";
+
+import "../../resources/css/layout.scss";
 
 import { TradesList } from "./TradesList";
 interface IProps {}
 
 export const App: React.FunctionComponent<IProps> = ({}: IProps) => {
-  const mockTrades = [
-    {
-      id: "1",
-      amount: 1500,
-      currency: "USD",
-    },
-    {
-      id: "2",
-      amount: 10000,
-      currency: "USD",
-    },
-  ];
+  const disaptch = useDispatch();
+  const trades = useSelector(selectTrades);
+
+  const handleAddTrade = () => {
+    disaptch(
+      addTradeAction({
+        amount: 500,
+        currency: "USD",
+        id: "11111",
+      })
+    );
+  };
 
   return (
     <div className={""}>
       Application
-      <TradesList trades={mockTrades} />
+      <TradesList trades={trades} />
+      <button onClick={handleAddTrade}>click</button>
     </div>
   );
 };
