@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addTradeAction } from "../state/trades/actions";
+import { openTradeAction } from "../state/trades/actions";
 import { selectTrades } from "../state/trades/selectors";
 
 import "../../resources/css/layout.scss";
@@ -14,13 +14,7 @@ export const App: React.FunctionComponent<IProps> = ({}: IProps) => {
   const trades = useSelector(selectTrades);
 
   const handleAddTrade = () => {
-    disaptch(
-      addTradeAction({
-        amount: 500,
-        currency: "USD",
-        id: "11111",
-      })
-    );
+    disaptch(openTradeAction(500));
   };
 
   return (

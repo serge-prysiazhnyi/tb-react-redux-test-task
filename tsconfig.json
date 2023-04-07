@@ -5,14 +5,7 @@
     "jsx": "react",
     "moduleResolution": "node",
     "baseUrl": ".",
-    "lib": [
-      "DOM",
-      "ES6",
-      "ES2015",
-      "ES2016",
-      "ES2017",
-      "ES2015.promise"
-    ],
+    "lib": ["DOM", "ES6", "ES2015", "ES2016", "ES2017", "ES2015.promise"],
     "allowJs": true,
     "sourceMap": true,
     "skipLibCheck": true,
@@ -29,11 +22,6 @@
       "entry/*": ["src/entry/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"]
 }

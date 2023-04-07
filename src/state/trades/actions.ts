@@ -1,28 +1,36 @@
+import { Trade } from "../../types";
+
 export enum ActionType {
   ADD_TRADE = "ADD_TRADE",
   OPEN_TRADE = "OPEN_TRADE",
 }
 
-import { Trade } from "../../types";
-
-export const addTradeAction = (trade: Trade) => {
-  return {
-    type: ActionType.ADD_TRADE,
-    payload: {
-      trade,
-    },
+type OpenTradeAction = {
+  type: ActionType.OPEN_TRADE;
+  payload: {
+    amount: number;
   };
 };
 
-export const openTrade = (amount: number) => {
-  return {
-    type: ActionType.OPEN_TRADE,
-    payload: {
-      amount,
-    },
+type AddTradeAction = {
+  type: ActionType.ADD_TRADE;
+  payload: {
+    trade: Trade;
   };
 };
 
-export type ActionTypesUnion =
-  | { type: ActionType.ADD_TRADE; payload: { trade: Trade } }
-  | { type: ActionType.OPEN_TRADE; payload: { amount: number } };
+export const addTradeAction = (trade: Trade): AddTradeAction => ({
+  type: ActionType.ADD_TRADE,
+  payload: {
+    trade,
+  },
+});
+
+export const openTradeAction = (amount: number): OpenTradeAction => ({
+  type: ActionType.OPEN_TRADE,
+  payload: {
+    amount,
+  },
+});
+
+export type ActionTypesUnion = AddTradeAction | OpenTradeAction;
