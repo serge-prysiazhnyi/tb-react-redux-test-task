@@ -1,18 +1,17 @@
-import { put, takeEvery } from "redux-saga/effects";
-import { addTradeAction, openTradeAction } from "./actions";
+import { put, takeEvery, call } from "redux-saga/effects";
+import { addTradeAction, openTradeAction, openTradeFailure } from "./actions";
 
 import { Trade } from "../../types";
+import { mockOpenTradeApi } from "../../api";
 
 function* openTrade({ payload }: ReturnType<typeof openTradeAction>) {
-  console.log("🚀 ~ file: saga openTrade:");
+  try {
+    const newTrade: Trade = yield call(mockOpenTradeApi, payload.amount);
 
-  const newTrade: Trade = {
-    id: `${Date.now()}`,
-    amount: payload.amount,
-    currency: "USD",
-  };
-
-  yield put(addTradeAction(newTrade));
+    yield put(addTradeAction(newTrade));
+  } catch (e) {
+    yield put(openTradeFailure(e));
+  }
 }
 
 export default function* () {

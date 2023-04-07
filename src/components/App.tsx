@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { openTradeAction } from "../state/trades/actions";
-import { selectTrades } from "../state/trades/selectors";
+import { selectTrades, selectTradesError } from "../state/trades/selectors";
 
 import "../../resources/css/layout.scss";
 
@@ -12,6 +12,7 @@ interface IProps {}
 export const App: React.FunctionComponent<IProps> = ({}: IProps) => {
   const disaptch = useDispatch();
   const trades = useSelector(selectTrades);
+  const error = useSelector(selectTradesError);
 
   const handleAddTrade = () => {
     disaptch(openTradeAction(500));
@@ -20,7 +21,7 @@ export const App: React.FunctionComponent<IProps> = ({}: IProps) => {
   return (
     <div className={""}>
       Application
-      <TradesList trades={trades} />
+      {error ? <div>{error.message}</div> : <TradesList trades={trades} />}
       <button onClick={handleAddTrade}>click</button>
     </div>
   );
