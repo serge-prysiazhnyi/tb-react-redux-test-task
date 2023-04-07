@@ -16,11 +16,22 @@ h1 {
 
 .app {
   height: 100%;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
 }
 
-.app-header {
-  margin-bottom: 2rem;
+.error-message {
+  margin-bottom: 1rem;
+  color: red;
+}
+
+.trades-list-header {
+  margin: 0;
+  padding: 1rem 0 0 0;
+}
+
+.trades-list {
+  list-style: none;
+  padding-left: 0;
 }
 
 .modal-overlay {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectTrades, selectTradesError } from "../state/trades/selectors";
 import { selectIsModalOpen } from "../state/ui/selectors";
-import { showModal } from "../state/ui/actions";
+import { showModalAction } from "../state/ui/actions";
 
 import "../../resources/css/layout.scss";
 
@@ -17,13 +17,16 @@ export const App: React.FC = () => {
   const isModalOpen = useSelector(selectIsModalOpen);
 
   const handleAddTrade = () => {
-    disaptch(showModal());
+    disaptch(showModalAction());
   };
 
   return (
     <div className="app">
-      <h1 className="app-header">Application</h1>
-      {error ? <div>{error.message}</div> : <TradesList trades={trades} />}
+      {error ? (
+        <div className="error-message">{error.message}</div>
+      ) : (
+        <TradesList trades={trades} />
+      )}
       <button className="default-button" onClick={handleAddTrade}>
         Open Trade
       </button>

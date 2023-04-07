@@ -1,6 +1,11 @@
 import { put, takeEvery, call } from "redux-saga/effects";
 
-import { addTradeAction, openTradeAction, openTradeFailure } from "./actions";
+import {
+  addTradeAction,
+  openTradeAction,
+  openTradeFailure,
+  ActionType,
+} from "./actions";
 import { Trade } from "../../types";
 import { mockOpenTradeApi } from "../../api";
 
@@ -14,5 +19,5 @@ function* openTrade({ payload }: ReturnType<typeof openTradeAction>) {
 }
 
 export default function* () {
-  yield takeEvery("OPEN_TRADE", openTrade);
+  yield takeEvery(ActionType.OPEN_TRADE, openTrade);
 }

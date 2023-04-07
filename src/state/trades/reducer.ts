@@ -20,6 +20,7 @@ export const reducer = (
       return {
         ...state,
         trades: [...state.trades, action.payload.trade],
+        error: null,
       };
 
     case ActionType.OPEN_TRADE_FAILURE:

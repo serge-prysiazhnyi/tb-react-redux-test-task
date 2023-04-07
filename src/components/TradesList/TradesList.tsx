@@ -10,17 +10,18 @@ interface TradesListProps {
 export const TradesList: React.FC<TradesListProps> = ({ trades }) => {
   return (
     <>
-      {trades.length === 0 ? (
-        <div>please open trades</div>
-      ) : (
-        <ul>
-          {trades.map(({ id, amount, currency }) => (
+      <h2 className="trades-list-header">Trades:</h2>
+      <ul className="trades-list">
+        {trades.length === 0 ? (
+          <li className="trades-list-placeholder">please open trades</li>
+        ) : (
+          trades.map(({ id, amount, currency }) => (
             <li key={id}>
               <TradeItem amount={amount} currency={currency} />
             </li>
-          ))}
-        </ul>
-      )}
+          ))
+        )}
+      </ul>
     </>
   );
 };

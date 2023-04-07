@@ -16,9 +16,9 @@ function* hideLoader() {
   yield put(hideLoaderAction());
 }
 
-function* showModal() {
-  yield put(showModalAction());
-}
+// function* showModal() {
+//   yield put(showModalAction());
+// }
 
 function* hideModal() {
   yield put(hideModalAction());
@@ -26,9 +26,10 @@ function* hideModal() {
 
 export default function* () {
   yield all([
-    takeEvery(ActionType.OPEN_TRADE, showModal),
     takeEvery(ActionType.OPEN_TRADE, showLoader),
     takeEvery(ActionType.ADD_TRADE, hideLoader),
     takeEvery(ActionType.ADD_TRADE, hideModal),
+    takeEvery(ActionType.OPEN_TRADE_FAILURE, hideModal),
+    takeEvery(ActionType.OPEN_TRADE_FAILURE, hideLoader),
   ]);
 }

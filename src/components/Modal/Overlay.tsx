@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 
-import { hideModal } from "../../state/ui/actions";
+import { hideModalAction } from "../../state/ui/actions";
 interface OverlayProps {
   children: React.ReactNode;
 }
@@ -14,7 +14,7 @@ export const Overlay: React.FC<OverlayProps> = ({ children }) => {
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!modalRef.current?.contains(e.target as Node)) {
-      dispatch(hideModal());
+      dispatch(hideModalAction());
     }
   };
 

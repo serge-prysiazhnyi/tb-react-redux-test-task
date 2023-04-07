@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectIsLoading } from "../../state/ui/selectors";
 import { openTradeAction } from "../../state/trades/actions";
-import { hideModal } from "../../state/ui/actions";
+import { hideModalAction } from "../../state/ui/actions";
 import { AmountInput } from "../AmountInput";
 import { Loader } from "../Loader";
 
@@ -25,7 +25,7 @@ export const ModalBody = () => {
   };
 
   const handleClose = () => {
-    dispatch(hideModal());
+    dispatch(hideModalAction());
   };
 
   return (
