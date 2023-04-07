@@ -1,3 +1,114 @@
+html,
+body,
+#Root {
+  height: 100%;
+}
+
 body {
-  color: #ff0000;
+  position: relative;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin: 0;
+}
+
+.app {
+  height: 100%;
+  padding: 1rem 2rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(181, 181, 181);
+  opacity: 0.6;
+}
+
+.modal-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 15rem;
+  min-height: 10rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.4rem;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  border-radius: 50%;
+  background-color: #000;
+  border: 0px;
+  color: #fff;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  font-size: 0.5rem;
+  cursor: pointer;
+}
+
+.default-button {
+  padding: 0.2rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0px;
+  background-color: #6a72e6;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.default-button:hover {
+  background-color: #202ff3;
+}
+
+.amount-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.amount-input label {
+  margin-bottom: 0.3rem;
+}
+
+.amount-input input {
+  padding: 0.5rem;
+  border: 1px solid #c3c3c3;
+  border-radius: 0.5rem;
+}
+
+.spinner {
+  transform-origin: center;
+  animation: spinner_sEAn 0.75s infinite linear;
+}
+
+@keyframes spinner_sEAn {
+  100% {
+    transform: rotate(360deg);
+  }
 }
