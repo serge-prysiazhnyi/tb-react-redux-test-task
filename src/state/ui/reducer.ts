@@ -2,10 +2,12 @@ import { ActionTypesUnion, ActionTypes } from "./actions";
 
 interface State {
   isLoading: boolean;
+  isModalOpen: boolean;
 }
 
 const initialState: State = {
   isLoading: false,
+  isModalOpen: false,
 };
 
 export const reducer = (
@@ -23,6 +25,18 @@ export const reducer = (
       return {
         ...state,
         isLoading: false,
+      };
+
+    case ActionTypes.SHOW_MODAL:
+      return {
+        ...state,
+        isModalOpen: true,
+      };
+
+    case ActionTypes.HIDE_MODAL:
+      return {
+        ...state,
+        isModalOpen: false,
       };
 
     default:
