@@ -4,6 +4,7 @@ export enum ActionType {
   ADD_TRADE = "ADD_TRADE",
   OPEN_TRADE = "OPEN_TRADE",
   OPEN_TRADE_FAILURE = "OPEN_TRADE_FAILURE",
+  CLEAR_ERROR = "CLEAR_ERROR",
 }
 
 type OpenTradeAction = {
@@ -27,6 +28,10 @@ type OpenTradeFailure = {
   };
 };
 
+type ClearError = {
+  type: ActionType.CLEAR_ERROR;
+};
+
 export const addTradeAction = (trade: Trade): AddTradeAction => ({
   type: ActionType.ADD_TRADE,
   payload: {
@@ -48,7 +53,12 @@ export const openTradeFailure = (error: Error): OpenTradeFailure => ({
   },
 });
 
+export const clearError = (): ClearError => ({
+  type: ActionType.CLEAR_ERROR,
+});
+
 export type ActionTypesUnion =
   | AddTradeAction
   | OpenTradeAction
-  | OpenTradeFailure;
+  | OpenTradeFailure
+  | ClearError;

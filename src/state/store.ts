@@ -4,6 +4,7 @@ import logger from "redux-logger";
 import { composeWithDevTools } from "@redux-devtools/extension";
 
 import { reducer as tradesReducer } from "./trades/reducer";
+import { reducer as uiReducer } from "./ui/reducer";
 import { rootSaga } from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddlware();
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === "development") {
 
 const reducer = combineReducers({
   tradesSlice: tradesReducer,
+  uiSlice: uiReducer,
 });
 
 export const store = createStore(
