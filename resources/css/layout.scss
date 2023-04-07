@@ -102,6 +102,19 @@ h1 {
   border-radius: 0.5rem;
 }
 
+.amount-input p {
+  opacity: 0;
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.amount-input p.visible {
+  opacity: 1;
+  color: red;
+}
+
 .spinner {
   transform-origin: center;
   animation: spinner_sEAn 0.75s infinite linear;

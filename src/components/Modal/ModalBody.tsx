@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectIsLoading } from "../../state/ui/selectors";
 import { openTradeAction } from "../../state/trades/actions";
+import { hideModal } from "../../state/ui/actions";
 import { AmountInput } from "../AmountInput";
 import { Loader } from "../Loader";
 
@@ -11,19 +12,20 @@ export const ModalBody = () => {
   const isLoading = useSelector(selectIsLoading);
 
   const [amount, setAmount] = useState<number>(0);
+  const [showValidationHint, setShowValidationHint] = useState<boolean>(false);
 
   const handleOpenTrade = () => {
-    console.log(
-      "🚀 ~ file: ModalBody.tsx:9 ~ handleOpenTrade ~ handleOpenTrade:"
-    );
-
     if (amount > 0) {
+      setShowValidationHint(false);
       dispatch(openTradeAction(amount));
+      return;
     }
+
+    setShowValidationHint(true);
   };
 
   const handleClose = () => {
-    // dispatch(closeModal());
+    dispatch(hideModal());
   };
 
   return (
@@ -36,6 +38,8 @@ export const ModalBody = () => {
             label="Enter amount:"
             value={amount}
             onChange={setAmount}
+            validationHint="amount must higher then zero"
+            showValidationHint={showValidationHint}
           />
           <button
             onClick={handleOpenTrade}

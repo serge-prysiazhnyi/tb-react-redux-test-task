@@ -29,11 +29,11 @@ export const hideLoaderAction = (): HideLoaderAction => ({
   type: ActionTypes.HIDE_LOADER,
 });
 
-export const showModal = (): ShowModal => ({
+export const showModalAction = (): ShowModal => ({
   type: ActionTypes.SHOW_MODAL,
 });
 
-export const hideModal = (): HideModal => ({
+export const hideModalAction = (): HideModal => ({
   type: ActionTypes.HIDE_MODAL,
 });
 

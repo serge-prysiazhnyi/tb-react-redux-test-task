@@ -4,14 +4,16 @@ interface AmountInputProps {
   label: string;
   value: number;
   onChange: (value: number) => void;
+  validationHint: string;
+  showValidationHint: boolean;
 }
-
-//
 
 export const AmountInput: React.FC<AmountInputProps> = ({
   label,
   value,
   onChange,
+  validationHint,
+  showValidationHint,
 }) => {
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) =>
     e.target.select();
@@ -28,6 +30,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
         }
         onFocus={handleFocus}
       />
+      <p className={showValidationHint ? "visible" : ""}>{validationHint}</p>
     </div>
   );
 };
