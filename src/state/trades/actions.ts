@@ -1,4 +1,4 @@
-import { Trade } from "../../types";
+import { Trade, Currencies } from "../../types";
 
 export enum ActionType {
   ADD_TRADE = "ADD_TRADE",
@@ -11,6 +11,7 @@ type OpenTradeAction = {
   type: ActionType.OPEN_TRADE;
   payload: {
     amount: number;
+    currency: Currencies;
   };
 };
 
@@ -39,10 +40,14 @@ export const addTradeAction = (trade: Trade): AddTradeAction => ({
   },
 });
 
-export const openTradeAction = (amount: number): OpenTradeAction => ({
+export const openTradeAction = (
+  amount: number,
+  currency: Currencies
+): OpenTradeAction => ({
   type: ActionType.OPEN_TRADE,
   payload: {
     amount,
+    currency,
   },
 });
 

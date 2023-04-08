@@ -1,16 +1,19 @@
-import { Trade } from "../types";
+import { Trade, Currencies } from "../types";
 
 const DELAY = 2000;
 const ERROR_THRESHOLD = 0.9;
 
-export const mockOpenTradeApi = (amount: number): Promise<Trade> =>
+export const mockOpenTradeApi = (
+  amount: number,
+  currency: Currencies
+): Promise<Trade> =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < ERROR_THRESHOLD) {
         const newTrade: Trade = {
           id: `${Date.now()}`,
           amount,
-          currency: "USD",
+          currency,
         };
         resolve(newTrade);
       } else {

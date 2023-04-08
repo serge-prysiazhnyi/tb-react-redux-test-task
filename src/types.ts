@@ -4,4 +4,4 @@ export interface Trade {
   currency: Currencies;
 }
 
-export type Currencies = "USD";
+export type Currencies = "USD" | "EUR";

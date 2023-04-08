@@ -84,7 +84,7 @@ h1 {
 }
 
 .default-button {
-  padding: 0.2rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 0.8rem;
   border: 0px;
   background-color: #6a72e6;
@@ -97,33 +97,40 @@ h1 {
   background-color: #202ff3;
 }
 
-.amount-input {
+.open-trade-form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
 }
 
-.amount-input label {
+.open-trade-form .field {
+  display: flex;
+  flex-direction: column;
+}
+
+.open-trade-form .field label {
   margin-bottom: 0.3rem;
 }
 
-.amount-input input {
+.open-trade-form .field input {
+  margin-bottom: 0.3rem;
   padding: 0.5rem;
-  border: 1px solid #c3c3c3;
   border-radius: 0.5rem;
+  border: 1px solid gray;
 }
 
-.amount-input p {
-  opacity: 0;
-  margin-top: 0.3rem;
-  margin-bottom: 0;
-  font-size: 0.7rem;
-  text-align: center;
-}
-
-.amount-input p.visible {
-  opacity: 1;
+.open-trade-form .field .error-msg {
+  height: 0.75rem;
+  line-height: 1;
   color: red;
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+.open-trade-form .currency {
+  margin-bottom: 1.05rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 .spinner {

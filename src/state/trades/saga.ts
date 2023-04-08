@@ -11,7 +11,11 @@ import { mockOpenTradeApi } from "../../api";
 
 function* openTrade({ payload }: ReturnType<typeof openTradeAction>) {
   try {
-    const newTrade: Trade = yield call(mockOpenTradeApi, payload.amount);
+    const newTrade: Trade = yield call(
+      mockOpenTradeApi,
+      payload.amount,
+      payload.currency
+    );
     yield put(addTradeAction(newTrade));
   } catch (e) {
     yield put(openTradeFailure(e));
