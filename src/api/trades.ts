@@ -1,7 +1,7 @@
 import { Trade, Currencies } from "../types";
 
 const DELAY = 2000;
-const ERROR_THRESHOLD = 0.9;
+const ERROR_THRESHOLD = 0.95;
 
 export const mockOpenTradeApi = (
   amount: number,
