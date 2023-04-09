@@ -1,10 +1,9 @@
 import { Trade, Currencies } from "../../types";
 
 export enum ActionType {
-  ADD_TRADE = "ADD_TRADE",
-  OPEN_TRADE = "OPEN_TRADE",
-  OPEN_TRADE_FAILURE = "OPEN_TRADE_FAILURE",
-  CLEAR_ERROR = "CLEAR_ERROR",
+  ADD_TRADE = "TRADES/ADD_TRADE",
+  OPEN_TRADE = "TRADES/OPEN_TRADE",
+  OPEN_TRADE_FAILURE = "TRADES/OPEN_TRADE_FAILURE",
 }
 
 type OpenTradeAction = {
@@ -27,10 +26,6 @@ type OpenTradeFailure = {
   payload: {
     error: Error;
   };
-};
-
-type ClearError = {
-  type: ActionType.CLEAR_ERROR;
 };
 
 export const addTradeAction = (trade: Trade): AddTradeAction => ({
@@ -58,12 +53,7 @@ export const openTradeFailure = (error: Error): OpenTradeFailure => ({
   },
 });
 
-export const clearError = (): ClearError => ({
-  type: ActionType.CLEAR_ERROR,
-});
-
 export type ActionTypesUnion =
   | AddTradeAction
   | OpenTradeAction
-  | OpenTradeFailure
-  | ClearError;
+  | OpenTradeFailure;

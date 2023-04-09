@@ -1,8 +1,8 @@
 export enum ActionTypes {
-  SHOW_LOADER = "SHOW_LOADER",
-  HIDE_LOADER = "HIDE_LOADER",
-  SHOW_MODAL = "SHOW_MODAL",
-  HIDE_MODAL = "HIDE_MODAL",
+  SHOW_LOADER = "UI/SHOW_LOADER",
+  HIDE_LOADER = "UI/HIDE_LOADER",
+  SHOW_MODAL = "UI/SHOW_MODAL",
+  HIDE_MODAL = "UI/HIDE_MODAL",
 }
 
 export type ShowLoaderAction = {

@@ -4,23 +4,18 @@ import {
   showLoaderAction,
   hideLoaderAction,
   hideModalAction,
-  showModalAction,
 } from "../ui/actions";
 import { ActionType } from "../trades/actions";
 
-function* showLoader() {
+export function* showLoader() {
   yield put(showLoaderAction());
 }
 
-function* hideLoader() {
+export function* hideLoader() {
   yield put(hideLoaderAction());
 }
 
-// function* showModal() {
-//   yield put(showModalAction());
-// }
-
-function* hideModal() {
+export function* hideModal() {
   yield put(hideModalAction());
 }
 

@@ -9,7 +9,7 @@ import {
 import { Trade } from "../../types";
 import { mockOpenTradeApi } from "../../api";
 
-function* openTrade({ payload }: ReturnType<typeof openTradeAction>) {
+export function* openTrade({ payload }: ReturnType<typeof openTradeAction>) {
   try {
     const newTrade: Trade = yield call(
       mockOpenTradeApi,

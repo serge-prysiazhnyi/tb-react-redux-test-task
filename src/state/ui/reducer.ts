@@ -1,11 +1,11 @@
 import { ActionTypesUnion, ActionTypes } from "./actions";
 
-interface State {
+export interface State {
   isLoading: boolean;
   isModalOpen: boolean;
 }
 
-const initialState: State = {
+export const initialState: State = {
   isLoading: false,
   isModalOpen: false,
 };

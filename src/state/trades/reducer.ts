@@ -6,7 +6,7 @@ export interface State {
   error: Error;
 }
 
-const initialState: State = {
+export const initialState: State = {
   trades: [],
   error: null,
 };
