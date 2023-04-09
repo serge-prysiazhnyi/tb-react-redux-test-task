@@ -17,7 +17,7 @@ export const mockOpenTradeApi = (
         };
         resolve(newTrade);
       } else {
-        reject(new Error("Something went wrong"));
+        reject(new Error("Oops! API Error :( Please try again"));
       }
     }, DELAY);
   });
